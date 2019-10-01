@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<link href="https://fonts/ggogleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body ng-app="mainApp" ng-controller="mainCtrl">
+
+	<section class="permission">
+		<h1 class="permission__title">Permission</h1>
+		<div class="permission__table table">
+			<div class="table__left-column">
+				<ul>					
+					<li class="row">Section</li>
+					<li class="table__text row" ng-repeat="item in itemList">{{ item.section }}</li>
+				</ul>
+			</div>
+			<div class="table values">
+				<table>
+					<tr class="values__header">
+						<th class="empty"></th> 
+						<th class="row">
+							<label class="permission__checkbox">
+								<input type="checkbox" ng-model=' checkViewAll ' ng-click=' checkAll() '>								
+								Check all						
+							</label>
+						</th>				
+						<th class="row">
+							<label class="permission__checkbox">
+								<input type="checkbox"
+									ng-model=' checkEditAll '
+									ng-disabled=' !(itemList[0].permission.edit && itemList[1].permission.edit && itemList[2].permission.edit && itemList[3].permission.edit) '
+								>
+								Check all
+							</label>
+						</th>
+						<th class="row">
+							<label class="permission__checkbox">
+								<input
+									type="checkbox"
+									ng-model=' checkRemoveAll '
+									ng-disabled=' !(itemList[0].permission.remove && itemList[1].permission.remove && itemList[2].permission.remove && itemList[3].permission.remove) '
+								>
+								Check all
+							</label>
+						</th>
+					</tr>
+					<tr ng-repeat="item in itemList">
+						<td class="empty"></td>
+						<td class="row">
+							<label class="permission__checkbox">
+								<input
+									type="checkbox"
+									ng-model=' item.permission.view '
+								>
+								View
+							</label>
+						</td>
+						<td class="row">
+							<label class="permission__checkbox">
+								<input
+									type="checkbox"
+									ng-model=' item.permission.edit '
+									ng-disabled=' !item.permission.view '
+								>
+								Edit
+							</label>
+						</td>
+						<td class="row">
+							<label class="permission__checkbox">
+								<input
+									type="checkbox"
+									ng-model=' item.permission.remove '
+									ng-disabled=' !item.permission.edit '
+								>
+								Remove
+							</label>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="table__footer footer">
+				<button type="button" class="footer__button" ng-click=" save() ">Save</button>
+			</div>
+		</div>
+	</section>
+
+<script type="text/javascript" src="main.05bc3f8920c9c054698b.js"></script></body>
+</html>
