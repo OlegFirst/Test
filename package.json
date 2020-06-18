@@ -4,7 +4,7 @@
   "description": "My webpack project",
   "main": "index.js",
   "dependencies": {
-    "angular": "^1.7.8",
+    "angular": "^1.8.0",
     "file-loader": "^4.2.0"
   },
   "devDependencies": {
